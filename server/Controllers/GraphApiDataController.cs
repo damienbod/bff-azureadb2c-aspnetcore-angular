@@ -23,13 +23,17 @@ public class GraphApiDataController : ControllerBase
     [HttpGet]
     public async Task<IEnumerable<string>> Get()
     {
-        return new List<string>();
-        //TODO
-        //var userData = await _graphApiClientService.GetGraphApiUser();
-        //if (userData == null)
-        //    return new List<string> { "no user data" };
+        var userId = User.GetNameIdentifierId();
+        if (userId != null)
+        {
+            var userData = await _graphApiClientService.GetGraphApiUser(userId);
+            if (userData == null)
+                return new List<string> { "no user data" };
 
-        //return new List<string> { $"DisplayName: {userData.DisplayName}",
-        //    $"GivenName: {userData.GivenName}", $"AboutMe: {userData.AboutMe}" };
+            return new List<string> { $"DisplayName: {userData.DisplayName}",
+            $"GivenName: {userData.GivenName}", $"AboutMe: {userData.AboutMe}" };
+        }
+
+        return Array.Empty<string>();
     }
 }

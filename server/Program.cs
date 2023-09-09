@@ -17,6 +17,7 @@ var services = builder.Services;
 var configuration = builder.Configuration;
 var env = builder.Environment;
 
+services.AddSingleton<GraphApplicationClientService>();
 services.AddScoped<MsGraphService>();
 services.AddScoped<CaeClaimsChallengeService>();
 
@@ -31,12 +32,11 @@ services.AddAntiforgery(options =>
 services.AddHttpClient();
 services.AddOptions();
 
-var scopes = configuration.GetValue<string>("DownstreamApi:Scopes");
+var scopes = configuration.GetValue<string>("GraphApi:Scopes");
 string[] initialScopes = scopes!.Split(' ');
 
-services.AddMicrosoftIdentityWebAppAuthentication(configuration)
-    .EnableTokenAcquisitionToCallDownstreamApi(initialScopes)
-    .AddMicrosoftGraph("https://graph.microsoft.com/v1.0", initialScopes)
+services.AddMicrosoftIdentityWebAppAuthentication(configuration, "AzureAdB2c")
+    .EnableTokenAcquisitionToCallDownstreamApi(Array.Empty<string>())
     .AddInMemoryTokenCaches();
 
 // If using downstream APIs and in memory cache, you need to reset the cookie session if the cache is missing
@@ -76,7 +76,7 @@ else
 
 app.UseSecurityHeaders(
     SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment(),
-        configuration["AzureAd:Instance"]));
+        configuration["AzureAdB2c:Instance"]));
 
 app.UseHttpsRedirection();
 
