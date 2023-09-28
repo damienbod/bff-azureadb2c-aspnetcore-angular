@@ -2,6 +2,12 @@
 
 [![.NET and npm build](https://github.com/damienbod/bff-azureadb2c-aspnetcore-angular/actions/workflows/dotnet.yml/badge.svg)](https://github.com/damienbod/bff-azureadb2c-aspnetcore-angular/actions/workflows/dotnet.yml) [![License](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg)](https://github.com/damienbod/bff-azureadb2c-aspnetcore-angular/blob/main/LICENSE)
 
+## Docuemntation
+
+See this: https://github.com/damienbod/bff-aspnetcore-angular
+
+Or **Microsoft.Identity.Web** for Azure AD B2C setups
+
 ## Debugging
 
 Start the Angular project from the **ui** folder
