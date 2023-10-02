@@ -48,3 +48,5 @@ https://github.com/isolutionsag/aspnet-react-bff-proxy-example
 https://github.com/damienbod/bff-auth0-aspnetcore-angular
 
 https://github.com/damienbod/bff-openiddict-aspnetcore-angular
+
+https://github.com/damienbod/bff-aspnetcore-vuejs
