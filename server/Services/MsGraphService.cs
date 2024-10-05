@@ -1,6 +1,6 @@
 ﻿
-using Microsoft.Graph.Users.Item.GetMemberGroups;
 using Microsoft.Graph.Models;
+using Microsoft.Graph.Users.Item.GetMemberGroups;
 
 namespace BffAzureAdB2c.Server.Services;
 

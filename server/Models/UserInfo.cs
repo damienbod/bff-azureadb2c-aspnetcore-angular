@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BffAzureAdB2c.Server.Models;
+﻿namespace BffAzureAdB2c.Server.Models;
 
 public class UserInfo
 {

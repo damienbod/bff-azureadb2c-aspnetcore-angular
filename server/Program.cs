@@ -1,6 +1,5 @@
 ﻿using BffAzureAdB2c.Server;
 using BffAzureAdB2c.Server.Services;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;

@@ -73,7 +73,7 @@ public class GraphApplicationClientService
         // var clientCertificateCredential = new ClientCertificateCredential(
         //    tenantId, clientId, clientCertificatePath, options);
 
-         _graphServiceClient = new GraphServiceClient(clientCertificateCredential, scopes);
+        _graphServiceClient = new GraphServiceClient(clientCertificateCredential, scopes);
         return _graphServiceClient;
     }
 
@@ -85,7 +85,7 @@ public class GraphApplicationClientService
             throw new ArgumentNullException(nameof(identifier));
 
         var vaultBaseUrl = _configuration["GraphApi:ClientCertificates:0:KeyVaultUrl"];
-        if(vaultBaseUrl == null)
+        if (vaultBaseUrl == null)
             throw new ArgumentNullException(nameof(vaultBaseUrl));
 
         var secretClient = new SecretClient(vaultUri: new Uri(vaultBaseUrl), credential: new DefaultAzureCredential());
