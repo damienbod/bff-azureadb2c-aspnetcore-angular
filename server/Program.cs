@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 using Microsoft.IdentityModel.Logging;
+using NetEscapades.AspNetCore.SecurityHeaders.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,13 @@ builder.WebHost.ConfigureKestrel(serverOptions =>
 var services = builder.Services;
 var configuration = builder.Configuration;
 var env = builder.Environment;
+
+services.AddSecurityHeaderPolicies()
+  .SetPolicySelector((PolicySelectorContext ctx) =>
+  {
+      return SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment(),
+        configuration["AzureAdB2c:Instance"]);
+  });
 
 services.AddSingleton<GraphApplicationClientService>();
 services.AddScoped<MsGraphService>();
@@ -67,9 +75,7 @@ else
     app.UseExceptionHandler("/Error");
 }
 
-app.UseSecurityHeaders(
-    SecurityHeadersDefinitions.GetHeaderPolicyCollection(env.IsDevelopment(),
-        configuration["AzureAdB2c:Instance"]));
+app.UseSecurityHeaders();
 
 app.UseHttpsRedirection();
 
