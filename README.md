@@ -44,7 +44,7 @@ nx migrate --run-migrations=migrations.json
 ## History
 
 - 2024-10-06 Updated Angular 18.2.7
-- 
+
 ## Links
 
 https://github.com/damienbod/bff-aspnetcore-angular
