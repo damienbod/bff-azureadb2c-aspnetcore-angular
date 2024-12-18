@@ -43,6 +43,7 @@ nx migrate --run-migrations=migrations.json
 
 ## History
 
+- 2024-12-18 Updated .NET 9, Angular 19
 - 2024-10-17 Updated packages, updated security headers performance
 - 2024-10-06 Updated Angular 18.2.7
 
@@ -65,3 +66,7 @@ https://github.com/damienbod/bff-openiddict-aspnetcore-angular
 https://github.com/damienbod/bff-aspnetcore-vuejs
 
 https://github.com/damienbod/bff-MicrosoftEntraExternalID-aspnetcore-angular
+
+## API Links
+
+https://damienbod.com/2023/01/30/using-multi-tenant-aad-delegated-apis-from-different-tenants/
