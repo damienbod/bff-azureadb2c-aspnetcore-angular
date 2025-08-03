@@ -32,7 +32,7 @@ public class MsGraphService
             .GetAsync();
     }
 
-    public async Task<GetMemberGroupsResponse?> GetGraphApiUserMemberGroups(string userId)
+    public async Task<GetMemberGroupsPostResponse?> GetGraphApiUserMemberGroups(string userId)
     {
         var graphServiceClient = _graphApplicationClientService.GetGraphClientWithClientSecretCredential();
 
@@ -43,6 +43,6 @@ public class MsGraphService
 
         return await graphServiceClient.Users[userId]
             .GetMemberGroups
-            .PostAsync(requestBody);
+            .PostAsGetMemberGroupsPostResponseAsync(requestBody);
     }
 }
